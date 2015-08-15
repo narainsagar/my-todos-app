@@ -1,0 +1,99 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>todosApp</title> 
+    <!-- build:css css/style.min.css -->
+    <link rel="stylesheet" media="screen" href="css/normalize.css" type="text/css" />
+    <link rel="stylesheet" media="screen" href="vendor/bootstrap-3.1.1-dist/css/bootstrap.min.css" type="text/css" />
+  	<link rel="stylesheet" media="screen" href="css/style.css" type="text/css" />
+    <!-- /build -->
+  </head>
+  <body>
+    <h1 class="header-text">todos</h1>
+    <div class="error">
+      <span class="color-red"></span>
+    </div>
+    <div class="todo">
+      <div class="input-group padding-bottom">
+          <span class="input-group-addon">
+            <input class="todo-checkbox-all" type="checkbox" >
+          </span>
+          <input id="task-entered" type="text" class="form-control" placeholder="What needs to done?">
+          <input id="task-due-date" type="text" class="form-control" placeholder="Due Date (optional) format: dd/mm/yyyy" >
+          <input id="task-input-tags" type="text" class="form-control" placeholder="tags (optional) format: tag1, tag2, etc." >
+      </div>
+    </div>
+
+    <script id="todo-template-list" type="text/template">
+      <div class="todoslist-container todo">
+        {{#todos}}
+        <div id="{{uniqueId}}" class="input-group">
+          <span class="input-group-addon">
+            <input class="task-checkbox-left" type="checkbox" {{#isCompleted}} checked {{/isCompleted}}>
+          </span>
+          <span class="list-group-item form-control {{#isEditable}}isEditable{{/isEditable}}" type="text" contentEditable="{{isEditable}}">{{#isCompleted}}<strike>{{/isCompleted}}{{message}} {{#isCompleted}}</strike>{{/isCompleted}}
+          </span>
+          <span class="todo-due-date form-control {{dateCheck}} {{#isEditable}}isEditable{{/isEditable}}" type="text" contentEditable="{{isEditable}}"> {{dueDate}} 
+          </span>
+          <span class="todo-tags form-control {{#isEditable}}isEditable{{/isEditable}}" type="text" contentEditable="{{isEditable}}"> {{tags}} </span>
+          <span class="input-group-btn">
+            <button class="cancel-button btn btn-default" type="button">X</button>
+          </span>
+        </div>
+        <br>
+        {{/todos}}
+      </div>
+      <div class="tags-collection">
+        {{#tagsCollection}}
+          <button type="button" class="btn btn-primary filter-tag">{{tagValue}}</button>
+        {{/tagsCollection}}
+      </div>
+    </script> 
+    <div id="show-list-block" class="collections">
+    </div>
+
+    <script id="todo-footer-clear-completed" type="text/template">
+      <div class="footer todo padding-bottom">
+        <span class="todos-count-active display-inline">
+          <strong>
+            {{totalTodosIncompleted}}
+          </strong> items left
+        </span>
+        <div class="center-buttons display-inline">
+          <button id="all-button" class="btn{{todoAllState}}" type="button">All</button>
+          <button id="active-button" class="btn{{todoActiveState}}" type="button">Active</button>
+          <button id="completed-button" class="btn{{todoCompleteState}}" type="button">Completed</button>
+        </div>
+          {{#totalTodosCompleted}}
+            <button id="clear-completed-button" class="btn display-inline bg-red" type="button">Clear Completed</button>
+          {{/totalTodosCompleted}}
+      </div>
+    </script>
+    <div id="show-todos-completed" class="filters">
+    </div>
+    <!-- build:remove -->
+		<!-- run `grunt` in your terminal and load this page on localhost:3000 to
+					enable auto-reload -->
+    <script src="//localhost:35729/livereload.js"></script>
+    <!-- /build -->
+    
+    <!-- build:js js/script.min.js -->
+    <script type="text/javascript" src="vendor/jquery-2.1.1/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/mustache.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/parse-1.5.0.min.js"></script>
+    <script type="text/javascript" src="js/TodoService.js"></script>
+    <script type="text/javascript" src="js/TodoCollectionModel.js"></script>
+    <script type="text/javascript" src="js/TodoController.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!-- /build -->
+  </body>
+  </html>

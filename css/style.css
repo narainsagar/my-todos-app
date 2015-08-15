@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'Quattrocento';
+	src: local('Quattrocento Bold'),
+		 local('Quattrocento-Bold'),
+		 url(http://fonts.gstatic.com/s/quattrocento/v7/Uvi-cRwyvqFpl9j3oT2mqshHwsiXhsDb0smKjAA7Bek.woff2) format('woff2'),
+		 url(http://fonts.gstatic.com/s/quattrocento/v7/Uvi-cRwyvqFpl9j3oT2mqkqWMeizceScn2Xpn1ZpsKI.woff2) format('woff2');
+}
+body {
+	padding-left: 2%;
+	padding-right: 2%;
+	background-color:#f8f8f8;
+	font-family: 'Quattrocento', serif;
+	min-width: 540px;
+}
+.bg-red {
+	background-color: red;
+}
+.color-red {
+	color: red;
+} 
+.color-green {
+	color: green;
+}
+.header-text {
+	color: green;
+	font-size: 70px;
+	padding-top: 5%;
+	padding-left: 35%;
+}
+.todo, .error {
+	width: 100%;
+}
+.padding-bottom {
+	padding-bottom: 3%;
+}
+.todo-list-box {
+	width: 100%;
+}
+.list-group-item {
+	width: 60%;
+}
+.footer {
+	margin-top: 6%;
+}
+.display-inline {
+	display: inline-block;
+}
+.todos-count-active {
+	width: 20%;
+}
+.center-buttons {
+	width: 50%;
+}
+.center-buttons button {
+	margin-right: 5%;
+}
+.selected {
+	background-color: rgb(89, 186, 241);
+}
